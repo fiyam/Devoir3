@@ -5,13 +5,7 @@
  */
 package MyMatrix;
 
-
-
-/**
- *
- * @author User
- */
-public class B {
+class B {
     
     public static double trouverParenthesageOptimalRec(int p[],int frontiere[][], int i, int j){
         double minimum=0;

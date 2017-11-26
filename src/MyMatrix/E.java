@@ -41,9 +41,9 @@ public class E  {
             
             
             System.out.println("n = " + (test1.length-1)
-                    + ", " + (apresProgDyn - avantProgDyn) / 1000.0
-                    + ", " + (apresMemo - avantMemo) / 1000.0
-                    + ", " + (apresRec - avantRec) / 1000.0);
+                    + ", Algorithme de Programmation Dynamique (D) " + (apresProgDyn - avantProgDyn) / 1000.0
+                    + ", Algorithme Récursif Optimisé (C) " + (apresMemo - avantMemo) / 1000.0
+                    + ", Algorithme Récursif de base (B) " + (apresRec - avantRec) / 1000.0);
         }
 
     
