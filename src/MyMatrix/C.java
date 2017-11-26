@@ -28,16 +28,13 @@ public class C {
                 double matriceOptimal[][]=null;
                 Arrays.fill(matriceOptimal,-1);
                 
-                if(matriceOptimal[i][k]==-1){
-                    gauche= trouverParenthesageOptimalRecOptimise(p,frontiere,i,k);
-                    matriceOptimal[i][k]=gauche;
-                }
+                if(matriceOptimal[i][k]==-1)
+                    matriceOptimal[i][k]=trouverParenthesageOptimalRecOptimise(p,frontiere,i,k);
+
                 
-                if(matriceOptimal[k+1][j]==-1){
-                    droite = trouverParenthesageOptimalRecOptimise(p,frontiere,k+1,j);
-                    matriceOptimal[k+1][j]=droite;
-                }
-                
+                if(matriceOptimal[k+1][j]==-1)
+                    matriceOptimal[k+1][j]=trouverParenthesageOptimalRecOptimise(p,frontiere,k+1,j);
+
                 total= matriceOptimal[i][k] + matriceOptimal[k+1][j] + (p[i-1] * p[k] * p[j]);
                 if(total<minimum){
                     minimum=total;
