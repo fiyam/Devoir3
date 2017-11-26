@@ -15,7 +15,7 @@ import java.util.Arrays;
  */
 public class C {
     
-    public static double trouverParenthesageOptimalRec(int p[],int frontiere[][], int i, int j){
+    public static double trouverParenthesageOptimalRecOptimise(int p[],int frontiere[][], int i, int j){
         double minimum=0;
         
         if (i!=j){
@@ -29,12 +29,12 @@ public class C {
                 Arrays.fill(matriceOptimal,-1);
                 
                 if(matriceOptimal[i][k]==-1){
-                    gauche= trouverParenthesageOptimalRec(p,frontiere,i,k);
+                    gauche= trouverParenthesageOptimalRecOptimise(p,frontiere,i,k);
                     matriceOptimal[i][k]=gauche;
                 }
                 
                 if(matriceOptimal[k+1][j]==-1){
-                    droite = trouverParenthesageOptimalRec(p,frontiere,k+1,j);
+                    droite = trouverParenthesageOptimalRecOptimise(p,frontiere,k+1,j);
                     matriceOptimal[k+1][j]=droite;
                 }
                 
