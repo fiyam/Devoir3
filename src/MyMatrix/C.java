@@ -7,12 +7,6 @@ package MyMatrix;
 
 import java.util.Arrays;
 
-
-
-/**
- *
- * @author User
- */
 public class C {
     
     public static double trouverParenthesageOptimalRecOptimise(int p[],int frontiere[][], int i, int j){

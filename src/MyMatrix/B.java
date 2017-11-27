@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MyMatrix;
 
 class B {
     
-    public static double trouverParenthesageOptimalRec(int p[],int frontiere[][], int i, int j){
-        double minimum=0;
+   public static int trouverParenthesageOptimalRec(int p[],int frontiere[][], int i, int j){
+        int minimum=0;
         
         if (i!=j){
-            minimum = Double.POSITIVE_INFINITY;
-            double gauche, droite,total;
+            minimum = Integer.MAX_VALUE;
+            int gauche, droite,total;
             int frontiereTemp=0;
             for(int k=i; k<=j-1;k++){
                 // (Ai...Ak)(Ak...Aj)
@@ -23,12 +19,10 @@ class B {
                     minimum=total;
                     frontiereTemp=k;
                 }
-               
             }
-            frontiere[i][j]= frontiereTemp;
             
+            frontiere[i-1][j-1]= frontiereTemp;   
         }
-     
         return minimum;
     }
 }

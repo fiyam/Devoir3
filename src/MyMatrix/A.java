@@ -1,10 +1,8 @@
 package MyMatrix;
 
 public class A {
-    Double[][] A = { { 4.00, 3.00 }, { 2.00, 1.00 } };
-    Double[][] B = { { -0.500, 1.500 }, { 1.000, -2.0000 } };
 
-    public static Double[][] multiplicar(Double[][] A, Double[][] B) {
+    public static int[][] multiplicar(int[][] A, int[][] B) {
 
         int aRows = A.length;
         int aColumns = A[0].length;
@@ -12,13 +10,13 @@ public class A {
         int bColumns = B[0].length;
 
         if (aColumns != bRows) {
-            throw new IllegalArgumentException("A:Rows: " + aColumns + " did not match B:Columns " + bRows + ".");
+            throw new IllegalArgumentException("Le nombre de colonnes de la première matrice '" + aColumns + "' n'est pas égal au nombre de lignes de la seconde matrice '" + bRows + "'.");
         }
 
-        Double[][] C = new Double[aRows][bColumns];
+        int[][] C = new int[aRows][bColumns];
         for (int i = 0; i < aRows; i++) {
             for (int j = 0; j < bColumns; j++) {
-                C[i][j] = 0.00000;
+                C[i][j] = 0;
             }
         }
 
@@ -32,16 +30,8 @@ public class A {
 
         return C;
     }
-
     public static void main(String[] args) {
 
-        A matrix = new A();
-        Double[][] result = multiplicar(matrix.A, matrix.B);
-
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++)
-                System.out.print(result[i][j] + " ");
-            System.out.println();
-        }
+        
     }
 }
