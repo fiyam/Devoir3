@@ -21,6 +21,7 @@ public class D {
                 }
                 m[i - 1][j - 1] = minimum;
                 frontiere[i - 1][j - 1] = frontiereTemp;
+                
             }
         }
     }
