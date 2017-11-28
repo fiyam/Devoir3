@@ -30,8 +30,5 @@ public class A {
 
         return C;
     }
-    public static void main(String[] args) {
-
-        
-    }
+   
 }
