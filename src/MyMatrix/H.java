@@ -11,27 +11,26 @@ package MyMatrix;
  */
 public class H {
     
-    public static void trouverParenthésageMaximal(int n,int p[],double m[][],int frontiere[][])  {
-     
-        double  maximum=0;
-        int j,frontiereTemp=0;
-        for(int i=1 ; i<=n ; i++)
-           m[i][i]=Double.POSITIVE_INFINITY;
- 
-        for ( int s=1 ;s<=n-1;s++){
-            for ( int i=1 ;i<=n-s;i++){
-                j=i+s;
-                maximum = 0;
-                
-                for ( int k=i ;k<=j-1;k++){
-                    double temp = m[i][k] + m[k+1][j] + p[i-1] * p[k] * p[j];
-                    if(temp>maximum){
+     public static void trouverParenthesageMinimal(int n, int p[], int m[][], int frontiere[][]) {
+
+        int maximum;
+        int j, frontiereTemp = 0;
+
+        for (int s = 1; s <= n - 1; s++) {
+            for (int i = 1; i <= n - s; i++) {
+                j = i + s;
+                maximum = Integer.MIN_VALUE;
+                for (int k = i; k <= j - 1; k++) {
+                    int temp = m[i - 1][k - 1] + m[k][j - 1] + (p[i - 1] * p[k] * p[j]);
+
+                    if (temp > maximum) {
                         maximum = temp;
-                         frontiereTemp=k;
-                        }
+                        frontiereTemp = k;
                     }
-                m[i][j]=maximum;
-                frontiere[i][j]=frontiereTemp;
+                }
+                m[i - 1][j - 1] = maximum;
+                frontiere[i - 1][j - 1] = frontiereTemp;
+                
             }
         }
     }
