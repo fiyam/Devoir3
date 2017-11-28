@@ -4,9 +4,9 @@ package MyMatrix;
 
 public class D {
     
-    public static void trouverParenthésageOptimal(int n,int p[],double m[][],int frontiere[][])  {
+    public static void trouverParenthésageOptimal(int n,int p[],int m[][],int frontiere[][])  {
      
-        double  minimum;
+        int  minimum;
         int j,frontiereTemp=0;
         for(int i=1 ; i<=n ; i++)
            m[i][i]=0;
@@ -14,10 +14,10 @@ public class D {
         for ( int s=1 ;s<=n-1;s++){
             for ( int i=1 ;i<=n-s;i++){
                 j=i+s;
-                minimum = Double.POSITIVE_INFINITY;
+                minimum = Integer.MAX_VALUE;
                 
                 for ( int k=i ;k<=j-1;k++){
-                    double temp = m[i][k] + m[k+1][j] + p[i-1] * p[k] * p[j];
+                    int temp = m[i][k] + m[k+1][j] + p[i-1] * p[k] * p[j];
                     if(temp<minimum){
                         minimum = temp ;
                          frontiereTemp=k;
