@@ -9,26 +9,23 @@ import java.util.Arrays;
 
 public class F {
 
-    public static void AfficheExpressionRec( int frontiere[][],int p[]) {
-        int i = 1;
-        int j = p.length;
-        int s =  frontiere[i][j];
-        
-        int p1[] = Arrays.copyOfRange(p, i, s);
-        int p2[] = Arrays.copyOfRange(p, s+1 , j);
-  
-        if(j==i)
-            System.out.println ("A"+i );  
-        else{
-            System.out.println ("(");
-            AfficheExpressionRec(frontiere,p1);
-            AfficheExpressionRec(frontiere,p2);
-            System.out.println (")");
-       
+    public static void afficheExpression(int frontiere[][], int p[]) {
+
+        afficheExpressionRec(frontiere, 1, p.length - 1);
+
+    }
+    static void afficheExpressionRec(int[][] s, int i, int j) {
+        if (i == j) {
+            System.out.print(("A") + (i));
+            if (i != s[0].length && j != s[0].length) {
+                System.out.print("*");
+            }
+        } else {
+            System.out.print("(");
+            afficheExpressionRec(s, i, s[i - 1][j - 1]);
+            afficheExpressionRec(s, s[i - 1][j - 1] + 1, j);
+            System.out.print(")");
         }
-     
-
-
     }
 
   

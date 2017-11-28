@@ -23,7 +23,7 @@ public class E  {
             int frontiereD[][]=null;
             double m[][]=null;
             long avantProgDyn = System.nanoTime();
-            D.trouverParenthésageOptimal(test1.length-1, test1,m, frontiereD);
+            D.trouverParenthesageOptimal(test1.length-1, test1,m, frontiereD);
             long apresProgDyn = System.nanoTime();
             
             
