@@ -5,39 +5,33 @@
  */
 package MyMatrix;
 
+import java.util.Arrays;
+
 public class F {
 
-    static void expressionRec(int p[], int frontiere[][]) {
-        int nbMatrices = p.length - 1;
-
-        if (nbMatrices < 2) {
-            int k = frontiere[1][nbMatrices];
-
-            // gauche
-            int pGauche[] = null;
-            for (int i = 0; i < k; i++) {
-                pGauche[i] = p[i];
-            }
-
-            //droite
-            int pDroite[] = null;
-            for (int j = k + 1; j < nbMatrices; j++) {
-                pGauche[j] = p[j];
-            }
-
-            int frontiereGauche[][] = null;
-            C.trouverParenthesageOptimalRecOptimise(pGauche, frontiereGauche, 0, k);
-            expressionRec(pGauche, frontiereGauche);
-
-            int frontiereDroite[][] = null;
-            C.trouverParenthesageOptimalRecOptimise(pDroite, frontiereDroite, k + 1, nbMatrices);
-            expressionRec(pDroite, frontiereDroite);
-
-            // p est adapté et on crée a chaque fois une nouvelle matrice frontiere?
-        }
+    public static void AfficheExpressionRec( int frontiere[][],int p[]) {
+        int i = 1;
+        int j = p.length;
+        int s =  frontiere[i][j];
         
-        System.out.println("A"); //???
+        int p1[] = Arrays.copyOfRange(p, i, s);
+        int p2[] = Arrays.copyOfRange(p, s+1 , j);
+  
+        if(j==i)
+            System.out.println ("A"+i );  
+        else{
+            System.out.println ("(");
+            AfficheExpressionRec(frontiere,p1);
+            AfficheExpressionRec(frontiere,p2);
+            System.out.println (")");
+       
+        }
+     
+
 
     }
+
+  
+ 
 
 }
